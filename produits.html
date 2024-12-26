@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechStore - Découvrez une large gamme de produits électroniques de qualité à des prix compétitifs. Livraison rapide et service client 24/7.">
+  <meta name="keywords" content="TechStore, produits tech, produits électroniques, vente en ligne, livraison rapide, service client">
+  <meta name="author" content="TechStore">
+  <title>Produits - TechStore</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      padding-top: 80px; /* Décalage pour la navbar */
+    }
+
+    .category-section {
+      padding: 40px 0;
+    }
+
+    .category-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #28a745;
+    }
+
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .product-card .card-body {
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    .product-card h5 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .product-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #28a745;
+      margin-top: 10px;
+    }
+
+    .btn-view-more {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-view-more:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-add-to-cart {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-add-to-cart:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .cart-summary {
+      margin-top: 30px;
+    }
+
+    .cart-summary h3 {
+      color: #28a745;
+    }
+
+    .cart-summary .total {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">TechStore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Produits</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section des Produits -->
+  <div class="category-section" id="categories">
+    <div class="container">
+      <h2>Nos Catégories</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Ordinateurs">
+            <div class="card-body">
+              <h5>Ordinateurs</h5>
+              <button class="btn-view-more" data-categorie="ordinateurs">Voir plus</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Téléphones">
+            <div class="card-body">
+              <h5>Téléphones</h5>
+              <button class="btn-view-more" data-categorie="telephones">Voir plus</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Montres">
+            <div class="card-body">
+              <h5>Montres</h5>
+              <button class="btn-view-more" data-categorie="montres">Voir plus</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Chargeurs">
+            <div class="card-body">
+              <h5>Chargeurs</h5>
+              <button class="btn-view-more" data-categorie="chargeurs">Voir plus</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section des Détails (masquée par défaut) -->
+  <div class="category-section hidden" id="details">
+    <div class="container">
+      <button class="btn btn-secondary mb-4" id="btn-retour">Retour</button>
+      <h2 id="details-title"></h2>
+      <div id="details-list" class="row"></div>
+    </div>
+  </div>
+  
+  <!-- Panier -->
+<div class="container cart-summary">
+  <h3>Panier</h3>
+  <div id="cart-items"></div>
+  <p class="total">Total: <span id="total-amount">0</span> FCFA</p>
+  <button id="btn-whatsapp" class="btn btn-success mt-3">Envoyer ma commande par WhatsApp</button>
+</div>
+<!-- Formulaire de collecte des informations client -->
+<div class="container cart-summary">
+  <h3>Panier</h3>
+  <div id="cart-items"></div>
+  <p class="total">Total: <span id="total-amount">0</span> FCFA</p>
+
+  <!-- Formulaire client -->
+  <h4>Informations du client</h4>
+  <form id="client-form">
+    <div class="mb-3">
+      <label for="client-name" class="form-label">Nom</label>
+      <input type="text" class="form-control" id="client-name" required>
+    </div>
+    <div class="mb-3">
+      <label for="client-phone" class="form-label">Numéro de téléphone</label>
+      <input type="text" class="form-control" id="client-phone" required>
+    </div>
+    <div class="mb-3">
+      <label for="client-email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="client-email" required>
+    </div>
+    <div class="mb-3">
+      <label for="client-address" class="form-label">Adresse</label>
+      <input type="text" class="form-control" id="client-address" required>
+    </div>
+    <button type="submit" class="btn btn-success mt-3" id="btn-whatsapp">Envoyer ma commande par WhatsApp</button>
+  </form>
+</div>
+ 
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 TechStore. Tous droits réservés. | <a href="#">Conditions d'utilisation</a></p>
+  </footer>
+
+  <script>
+    const categories = {
+      ordinateurs: [
+        { name: "Dell XPS 13", description: "Un ordinateur portable ultra-performant", price: 1200000 },
+        { name: "MacBook Pro 16\"", description: "Ordinateur Mac puissant", price: 3500000 },
+        { name: "HP Spectre x360", description: "Un ordinateur convertible avec écran tactile", price: 1800000 },
+        { name: "Lenovo ThinkPad X1", description: "L'ordinateur idéal pour les professionnels", price: 2000000 },
+        { name: "Asus ROG Zephyrus", description: "PC gaming avec une carte graphique puissante", price: 2500000 },
+        { name: "Microsoft Surface Laptop 4", description: "Ordinateur léger avec un écran tactile", price: 1700000 },
+        { name: "Acer Swift 3", description: "Ordinateur fin et léger pour une productivité maximale", price: 1000000 },
+        { name: "Razer Blade 15", description: "Ordinateur gaming avec un design élégant", price: 3000000 },
+        { name: "Alienware m15", description: "PC gaming haute performance", price: 2800000 }
+      ],
+      telephones: [
+        { name: "iPhone 15", description: "Le dernier iPhone avec un design élégant", price: 1500000 },
+        { name: "Samsung Galaxy S24", description: "Smartphone Android haut de gamme", price: 1300000 },
+        { name: "Google Pixel 8", description: "Smartphone avec des fonctionnalités avancées", price: 1200000 },
+        { name: "OnePlus 11", description: "Un smartphone avec une performance incroyable", price: 1000000 },
+        { name: "Xiaomi Mi 13", description: "Un téléphone abordable avec une grande batterie", price: 900000 },
+        { name: "Oppo Find X5", description: "Smartphone avec un excellent rapport qualité-prix", price: 1100000 },
+        { name: "Realme GT 2 Pro", description: "Smartphone rapide avec un design innovant", price: 950000 },
+        { name: "Huawei P60", description: "Téléphone haut de gamme avec une caméra exceptionnelle", price: 1400000 },
+        { name: "Sony Xperia 1 V", description: "Un téléphone avec une performance exceptionnelle", price: 1600000 }
+      ],
+      montres: [
+        { name: "Apple Watch Series 9", description: "Montre intelligente avec suivi de la santé", price: 350000 },
+        { name: "Samsung Galaxy Watch 6", description: "Montre intelligente avec une interface fluide", price: 300000 },
+        { name: "Garmin Fenix 7", description: "Montre de sport robuste et multifonctionnelle", price: 400000 },
+        { name: "Fitbit Charge 6", description: "Montre fitness avec suivi d'activité", price: 150000 },
+        { name: "Huawei Watch GT 3", description: "Montre intelligente avec une grande autonomie", price: 250000 },
+        { name: "Amazfit GTR 4", description: "Montre avec un design élégant et une excellente autonomie", price: 200000 },
+        { name: "Suunto 9 Peak", description: "Montre de sport avec GPS avancé", price: 450000 },
+        { name: "Withings Steel HR", description: "Montre hybride avec suivi d'activité", price: 180000 },
+        { name: "Tag Heuer Connected", description: "Montre de luxe avec technologie smartwatch", price: 1500000 }
+      ],
+      chargeurs: [
+        { name: "Anker PowerPort 2", description: "Chargeur rapide pour smartphone", price: 50000 },
+        { name: "Belkin BoostCharge", description: "Chargeur sans fil pour plusieurs appareils", price: 70000 },
+        { name: "Apple 20W USB-C Power Adapter", description: "Adaptateur pour iPhone et iPad", price: 60000 },
+        { name: "Samsung 25W USB-C Charger", description: "Chargeur rapide pour smartphones Samsung", price: 75000 },
+        { name: "RAVPower PD 60W", description: "Chargeur puissant pour ordinateurs et smartphones", price: 120000 },
+        { name: "Aukey Omnia 65W", description: "Chargeur compact et rapide", price: 80000 },
+        { name: "Xiaomi 33W Fast Charger", description: "Chargeur rapide pour appareils Xiaomi", price: 60000 },
+        { name: "Nekteck USB-C Charger", description: "Chargeur avec technologie de charge rapide", price: 55000 },
+        { name: "Baseus GaN 65W", description: "Chargeur avec technologie GaN pour une meilleure efficacité", price: 90000 }
+      ]
+    };
+
+    let cart = [];
+
+    // Fonction pour afficher les produits d'une catégorie
+    function showCategory(categorie) {
+      document.getElementById('categories').classList.add('hidden');
+      const detailsSection = document.getElementById('details');
+      detailsSection.classList.remove('hidden');
+      document.getElementById('details-title').innerText = categorie.charAt(0).toUpperCase() + categorie.slice(1);
+      const detailsList = document.getElementById('details-list');
+      detailsList.innerHTML = '';
+
+      categories[categorie].forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('col-md-4');
+        productCard.innerHTML = `
+          <div class="card product-card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+              <h5>${product.name}</h5>
+              <p>${product.description}</p>
+              <p class="price">${product.price} FCFA</p>
+              <button class="btn-add-to-cart" data-categorie="${categorie}" data-index="${index}">Ajouter au panier</button>
+            </div>
+          </div>
+        `;
+        detailsList.appendChild(productCard);
+      });
+    }
+
+    // Ajouter un produit au panier
+    function addToCart(categorie, index) {
+      const product = categories[categorie][index];
+      cart.push(product);
+      updateCart();
+    }
+
+    // Mettre à jour l'affichage du panier
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+
+      let total = 0;
+      cart.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.innerHTML = `${item.name} - ${item.price} FCFA`;
+        cartItems.appendChild(cartItem);
+        total += item.price;
+      });
+
+      document.getElementById('total-amount').innerText = total;
+    }
+
+    // Gestion des événements
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.classList.contains('btn-view-more')) {
+        const category = e.target.dataset.categorie;
+        showCategory(category);
+      }
+
+      if (e.target && e.target.classList.contains('btn-add-to-cart')) {
+        const category = e.target.dataset.categorie;
+        const index = e.target.dataset.index;
+        addToCart(category, index);
+      }
+
+      if (e.target && e.target.id === 'btn-retour') {
+        document.getElementById('details').classList.add('hidden');
+        document.getElementById('categories').classList.remove('hidden');
+      }
+    });
+    // Fonction pour générer le message WhatsApp
+  function generateWhatsAppMessage() {
+    let message = "Bonjour, voici ma commande :\n\n";
+
+    // Ajouter les produits du panier au message
+    cart.forEach(item => {
+      message += `${item.name} - ${item.price} FCFA\n`;
+    });
+
+    // Ajouter le total au message
+    const totalAmount = document.getElementById('total-amount').innerText;
+    message += `\nTotal : ${totalAmount} FCFA`;
+
+    return message;
+  }
+
+  // Fonction pour rediriger vers WhatsApp
+  function sendOrderViaWhatsApp() {
+    const phoneNumber = "+221777087976";  // Remplace par ton numéro WhatsApp
+    const message = generateWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);  // Encodage pour les espaces et caractères spéciaux
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Ouvrir le lien WhatsApp dans une nouvelle fenêtre
+    window.open(whatsappLink, "_blank");
+  }
+
+  // Gestion de l'événement du bouton WhatsApp
+  document.getElementById('btn-whatsapp').addEventListener('click', sendOrderViaWhatsApp);
+  // Fonction pour générer le message WhatsApp avec les informations du client
+function generateWhatsAppMessage() {
+  let message = "Bonjour, voici ma commande :\n\n";
+
+  // Ajouter les produits du panier au message
+  cart.forEach(item => {
+    message += `${item.name} - ${item.price} FCFA\n`;
+  });
+
+  // Ajouter le total au message
+  const totalAmount = document.getElementById('total-amount').innerText;
+  message += `\nTotal : ${totalAmount} FCFA\n\n`;
+
+  // Ajouter les informations du client au message
+  const name = document.getElementById('client-name').value;
+  const phone = document.getElementById('client-phone').value;
+  const email = document.getElementById('client-email').value;
+  const address = document.getElementById('client-address').value;
+
+  message += `Nom: ${name}\n`;
+  message += `Numéro de téléphone: ${phone}\n`;
+  message += `Email: ${email}\n`;
+  message += `Adresse: ${address}\n`;
+
+  return message;
+}
+
+// Fonction pour rediriger vers WhatsApp avec les informations du client
+function sendOrderViaWhatsApp(event) {
+  event.preventDefault(); // Empêche l'envoi du formulaire
+
+  const phoneNumber = "+221777087976";  // Remplace par ton numéro WhatsApp
+  const message = generateWhatsAppMessage();
+  const encodedMessage = encodeURIComponent(message);  // Encodage pour les espaces et caractères spéciaux
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  // Ouvrir le lien WhatsApp dans une nouvelle fenêtre
+  window.open(whatsappLink, "_blank");
+}
+
+// Gestion de l'événement du bouton WhatsApp
+document.getElementById('client-form').addEventListener('submit', sendOrderViaWhatsApp);
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
