@@ -13,11 +13,25 @@
     body {
       font-family: 'Arial', sans-serif;
       color: #333;
-      padding-top: 80px; /* Décalage pour que la navbar ne cache pas la bannière */
+      padding-top: 0;
+    }
+
+    .top-section {
+      background-color: #28a745;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .top-section h2 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
     }
 
     .banniere1 {
-      background: linear-gradient(135deg, #28a745, #219e41); 
+      background: linear-gradient(135deg, #28a745, #219e41);
       color: white;
       padding: 60px 0;
       text-align: center;
@@ -103,25 +117,71 @@
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
+
+    .chatbot {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 350px;
+      height: 450px;
+      border: 2px solid #28a745;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      z-index: 9999;
+    }
+
+    .chatbot-header {
+      background-color: #28a745;
+      color: white;
+      padding: 15px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      text-align: center;
+    }
+
+    .chatbot-body {
+      padding: 10px;
+      height: calc(100% - 80px);
+      overflow-y: auto;
+      font-size: 1rem;
+    }
+
+    .chatbot-footer {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    .chatbot-footer input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+    }
+
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">TechStore</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="produits.html">Produits</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+  <!-- Section en haut de la page -->
+  <div class="top-section">
+    <h2>Bienvenue chez TechStore - Votre Destination High-Tech</h2>
+  </div>
 
   <!-- Bannière -->
   <div class="banniere1">
@@ -158,6 +218,49 @@
   <footer>
     <p>&copy; 2024 TechStore. Tous droits réservés. | <a href="#" style="color: #ffc107;">Conditions d'utilisation</a></p>
   </footer>
+
+  <!-- Chatbot -->
+  <div class="chatbot" id="chatbot">
+    <div class="chatbot-header">
+      <h4>Assistance en ligne</h4>
+    </div>
+    <div class="chatbot-body" id="chatbot-body">
+      <p>Bonjour ! Comment puis-je vous aider aujourd'hui ?</p>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text" id="chatbot-input" placeholder="Tapez votre message..." />
+    </div>
+  </div>
+
+  <!-- Bouton pour ouvrir/fermer le chatbot -->
+  <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+
+  <script>
+    function toggleChatbot() {
+      const chatbot = document.getElementById('chatbot');
+      chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'block' : 'none';
+    }
+
+    // Gestion de l'envoi de message
+    document.getElementById('chatbot-input').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        const userMessage = event.target.value;
+        if (userMessage) {
+          const chatbotBody = document.getElementById('chatbot-body');
+          chatbotBody.innerHTML += `<p><strong>Vous:</strong> ${userMessage}</p>`;
+          event.target.value = ''; // Réinitialiser le champ de texte
+
+          // Réponse automatique
+          setTimeout(() => {
+            chatbotBody.innerHTML += `<p><strong>TechStore:</strong> Désolé, je suis un peu occupé, veuillez me contacter 👉 +221 77 708 79 76</p>`;
+            chatbotBody.scrollTop = chatbotBody.scrollHeight; // Scroller vers le bas
+          }, 1000);
+
+          chatbotBody.scrollTop = chatbotBody.scrollHeight; // Toujours scroller vers le bas pour montrer la dernière réponse
+        }
+      }
+    });
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -39,27 +39,44 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    .product-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
+    .product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Assure que toutes les cartes prennent la hauteur disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    .product-card .card-body {
-      padding: 20px;
-      background-color: #f8f9fa;
-    }
+.product-card img {
+  width: 100%;
+  height: 200px; /* Taille uniforme pour les images */
+  object-fit: cover;
+}
 
-    .product-card h5 {
+.product-card .card-body {
+  padding: 20px;
+  background-color: #f8f9fa;
+  flex-grow: 1; /* Permet d'étirer le corps pour équilibrer les dimensions */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.product-card h5 {
       font-size: 1.2rem;
       margin-bottom: 10px;
       color: #333;
-    }
+}
 
-    .product-card p {
+.product-card p {
       font-size: 0.9rem;
       color: #555;
-    }
+ }
 
     .price {
       font-size: 1.2rem;
@@ -260,20 +277,36 @@
   <script>
     const products = {
       ordinateurs: [
-        {name: 'Ordinateur A', description: 'Ordinateur puissant pour les tâches professionnelles.', price: 50000, img: 'images/ordinateurA.avif'},
-        {name: 'Ordinateur B', description: 'Ordinateur léger et portable.', price: 60000, img: 'images/ordinateurB.avif'}
+        {name: 'hp 1030 x360', description: 'Ordinateur puissant pour les tâches professionnelles.', price: 230000, img: 'images/del.jpeg'},
+        {name: 'AMD Raysen 7 pro', description: 'Ordinateur léger et portable.', price: 275000, img: 'images/o1.jpeg'},
+        {name: 'PC MacBook Air', description: 'Ordinateur puissant pour les tâches professionnelles.', price: 285000, img: 'images/mac2.jpeg'},
+        {name: 'hp', description: 'Ordinateur léger et portable.', price: 140000, img: 'images/o2.jpeg'},
+        {name: 'Macbook-pro', description: 'Ordinateur puissant pour les tâches professionnelles.', price: 1450000, img: 'images/mac3.jpeg'},
+        {name: 'Ordinateur-bureau', description: 'Ordinateur léger et portable.', price: 285000, img: 'images/o3.jpeg'},
       ],
       telephones: [
-        {name: 'iPhone 12', description: 'Smartphone haut de gamme.', price: 150000, img: 'images/iphone12.avif'},
-        {name: 'Samsung Galaxy S21', description: 'Smartphone Android performant.', price: 120000, img: 'images/galaxys21.avif'}
+        {name: 'iPhone 15-pro', description: 'Smartphone haut de gamme.', price: 550000, img: 'images/iphone 15 pro.avif'},
+        {name: 'iPhone 14-pro', description: 'Smartphone Android performant.', price: 540000, img: 'images/i2.avif'},
+        {name: 'iPhone Xr-pro', description: 'Smartphone haut de gamme.', price: 230000, img: 'images/i3.avif'},
+        {name: 'Fold', description: 'Smartphone Android performant.', price: 900000, img: 'images/f1.avif'},
+        {name: 'Samsung A52', description: 'Smartphone haut de gamme.', price: 175000, img: 'images/f2.avif'},
+        {name: 'Fold', description: 'Smartphone Android performant.', price: 7500000, img: 'images/f3.avif'},
       ],
       montres: [
-        {name: 'Montre A', description: 'Montre élégante et durable.', price: 10000, img: 'images/montreA.avif'},
-        {name: 'Montre B', description: 'Montre connectée avec suivi de santé.', price: 20000, img: 'images/montreB.avif'}
+        {name: 'Montre A', description: 'Montre élégante et durable.', price: 10000, img: 'images/m1.avif'},
+        {name: 'Montre B', description: 'Montre connectée avec suivi de santé.', price: 20000, img: 'images/m2.avif'},
+        {name: 'Montre C', description: 'Montre élégante et durable.', price: 10000, img: 'images/m3.avif'},
+        {name: 'Montre D', description: 'Montre connectée avec suivi de santé.', price: 20000, img: 'images/m4.avif'},
+        {name: 'Montre E', description: 'Montre élégante et durable.', price: 10000, img: 'images/m5.avif'},
+        {name: 'Montre F', description: 'Montre connectée avec suivi de santé.', price: 20000, img: 'images/m6.avif'},
       ],
       chargeurs: [
-        {name: 'Chargeur USB-C', description: 'Chargeur rapide pour appareils compatibles USB-C.', price: 2000, img: 'images/chargeur1.avif'},
-        {name: 'Chargeur sans fil', description: 'Chargeur sans fil pour téléphone.', price: 3000, img: 'images/chargeur2.avif'}
+        {name: 'Chargeur USB-C', description: 'Chargeur rapide pour appareils compatibles USB-C.', price: 3000, img: 'images/c1.avif'},
+        {name: 'Chargeur sans fil', description: 'Chargeur sans fil pour téléphone.', price: 1500, img: 'images/c2.avif'},
+        {name: 'Chargeur USB-C', description: 'Chargeur rapide pour appareils compatibles USB-C.', price: 2000, img: 'images/c3.avif'},
+        {name: 'Chargeur sans fil', description: 'Chargeur sans fil pour téléphone.', price: 3000, img: 'images/c4.avif'},
+        {name: 'Chargeur USB-C', description: 'Chargeur rapide pour appareils compatibles USB-C.', price: 2000, img: 'images/c5.avif'},
+        {name: 'Chargeur sans fil', description: 'Chargeur sans fil pour téléphone.', price: 3000, img: 'images/c6.avif'},
       ]
     };
 
