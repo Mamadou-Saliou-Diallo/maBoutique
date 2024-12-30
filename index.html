@@ -3,264 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TechStore - Découvrez une large gamme de produits électroniques de qualité à des prix compétitifs. Livraison rapide et service client 24/7.">
-  <meta name="keywords" content="TechStore, produits tech, produits électroniques, vente en ligne, livraison rapide, service client">
+  <meta name="description" content="Bienvenue sur TechStore - Votre boutique en ligne pour les appareils électroniques de qualité.">
+  <meta name="keywords" content="TechStore, ordinateurs, téléphones, écouteurs, boutique en ligne">
   <meta name="author" content="TechStore">
-  <title>Découvrez TechStore - Votre Destination High-Tech</title>
+  <title>Accueil - TechStore</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Ajout de Font Awesome -->
   <style>
+    /* Couleurs de base */
+    :root {
+      --primary-color: #f39c12; /* Jaune doré */
+      --secondary-color: #218838; /* Vert foncé pour les boutons */
+      --bg-color: #f0f4f8; /* Gris clair pour l'arrière-plan */
+      --white-color: #ffffff; /* Blanc */
+      --text-color: #333333; /* Gris foncé pour le texte */
+      --cta-bg-color: #28a745; /* Vert vif pour les sections CTA */
+      --cta-text-color: #ffffff; /* Texte en blanc pour les CTA */
+      --hover-bg-color: #f1f1f1; /* Gris clair pour l'effet de survol */
+      --dark-color: #2d3436; /* Couleur sombre pour les textes */
+    }
+
+    /* Global Styles */
     body {
-      font-family: 'Arial', sans-serif;
-      color: #333;
-      padding-top: 0;
-    }
-
-    .top-section {
-      background-color: #28a745;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .top-section h2 {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
-      font-size: 2rem;
-      font-weight: bold;
+      padding: 0;
     }
 
-    .banniere1 {
-      background: linear-gradient(135deg, #28a745, #219e41);
-      color: white;
-      padding: 60px 0;
+    /* Hero Section */
+    .hero {
+      background: url('images/hero-banner.jpg') no-repeat center center/cover;
+      color: var(--white-color);
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      padding: 100px 20px;
+      background-color: rgba(0, 0, 0, 0.4); /* Légère transparence sur l'image */
     }
 
-    .banniere1 h1 {
+    .hero h1 {
       font-size: 3.5rem;
+      font-weight: 700;
       margin-bottom: 20px;
-      font-weight: bold;
-      animation: fadeIn 2s ease-out;
+      letter-spacing: 2px;
     }
 
-    .banniere1 p {
+    .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
-      animation: fadeIn 2s ease-out;
+      font-weight: 300;
     }
 
-    .banniere1 button {
-      background-color: #ffc107;
-      color: #333;
-      border: none;
-      padding: 10px 20px;
+    .btn-cta {
+      background-color: var(--cta-bg-color);
+      color: var(--cta-text-color);
+      padding: 15px 30px;
       font-size: 1.2rem;
-      font-weight: bold;
+      border: none;
       border-radius: 50px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    .banniere1 button:hover {
-      background-color: #ffca2c;
-      transform: scale(1.1);
+    .btn-cta:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
     }
 
-    .features-section {
-      padding: 40px 0;
-      background-color: #f8f9fa;
-    }
-
-    .features-section h2 {
+    /* About Section */
+    .about {
+      padding: 60px 20px;
       text-align: center;
-      margin-bottom: 30px;
-      color: #28a745;
-      animation: fadeIn 2s ease-out;
+      background-color: var(--white-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-top: -80px; /* Déplacement vers le haut */
     }
 
-    .feature {
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      color: var(--dark-color);
+    }
+
+    /* Nouvelle bannière */
+    .new-banner {
+      background-color: var(--primary-color);
+      color: var(--white-color);
+      padding: 40px 20px;
+      margin-top: 30px;
       text-align: center;
-      padding: 20px;
+    }
+
+    .new-banner h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    .new-banner p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .new-banner .btn-cta {
+      background-color: var(--white-color);
+      color: var(--primary-color);
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .new-banner .btn-cta:hover {
+      background-color: var(--hover-bg-color);
+      transform: scale(1.05);
+    }
+
+    /* Categories Section */
+    .categories {
+      padding: 60px 20px;
+      background-color: var(--white-color);
+    }
+
+    .category-card {
+      background-color: var(--white-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 30px;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .category-card:hover {
+      transform: scale(1.05);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 200px;  /* Hauteur fixe pour toutes les images */
+      object-fit: cover;  /* Garantit que l'image remplisse l'espace sans être déformée */
+      border-radius: 10px;
       transition: transform 0.3s ease;
     }
 
-    .feature:hover {
-      transform: translateY(-10px);
+    .category-card:hover img {
+      transform: scale(1.05);
     }
 
-    .feature i {
-      font-size: 3rem;
-      color: #28a745;
-      margin-bottom: 15px;
-    }
-
-    .feature h4 {
+    .category-card h4 {
+      margin-top: 15px;
       font-size: 1.5rem;
-      margin-bottom: 10px;
+      font-weight: 600;
     }
 
-    .feature p {
-      color: #555;
+    /* Call to Action Section */
+    .cta {
+      background-color: var(--cta-bg-color);
+      color: var(--white-color);
+      text-align: center;
+      padding: 40px 20px;
     }
 
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      color: var(--white-color);
+      font-weight: bold;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      background-color: var(--secondary-color);
+      transition: background-color 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .cta a:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* Footer */
     footer {
-      background-color: #333;
-      color: white;
+      background-color: #343a40;
+      color: var(--white-color);
       padding: 20px 0;
-      text-align: center;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    .chatbot {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 350px;
-      height: 450px;
-      border: 2px solid #28a745;
-      border-radius: 12px;
-      background-color: #fff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      display: none;
-      z-index: 9999;
-    }
-
-    .chatbot-header {
-      background-color: #28a745;
-      color: white;
-      padding: 15px;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      text-align: center;
-    }
-
-    .chatbot-body {
-      padding: 10px;
-      height: calc(100% - 80px);
-      overflow-y: auto;
+    footer p {
+      margin: 0;
       font-size: 1rem;
     }
 
-    .chatbot-footer {
-      padding: 10px;
-      border-top: 1px solid #ddd;
+    .social-icons {
+      margin-top: 15px;
     }
 
-    .chatbot-footer input {
-      width: calc(100% - 20px);
-      padding: 10px;
-      border-radius: 20px;
-      border: 1px solid #ddd;
+    .social-icons a {
+      color: var(--white-color);
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
     }
 
-    .chatbot-toggle {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 15px;
-      font-size: 2rem;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      z-index: 9999;
+    .social-icons a:hover {
+      color: var(--primary-color);
     }
   </style>
 </head>
 <body>
-
-  <!-- Section en haut de la page -->
-  <div class="top-section">
-    <h2>Bienvenue chez TechStore - Votre Destination High-Tech</h2>
-  </div>
-
-  <!-- Bannière -->
-  <div class="banniere1">
-    <h1>Les Meilleurs Produits Tech à Portée de Main</h1>
-    <p>Découvrez une large gamme de produits électroniques de qualité supérieure. Profitez de promotions exclusives et d'une expérience d'achat simplifiée !</p>
-    <button onclick="window.location.href='produits.html'">Découvrez Nos Offres Exceptionnelles</button>
-  </div>
-
-  <!-- Features Section -->
-  <div class="features-section">
-    <h2>Pourquoi choisir TechStore ?</h2>
+  <!-- Hero Section -->
+  <header class="hero">
     <div class="container">
+      <h1>Bienvenue chez TechStore</h1>
+      <p>Votre destination pour les meilleures technologies et appareils électroniques</p>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <h2>À propos de nous</h2>
+      <p>Chez TechStore, nous nous engageons à fournir des produits de haute qualité, allant des ordinateurs aux écouteurs Bluetooth, pour satisfaire tous vos besoins technologiques.</p>
+    </div>
+  </section>
+
+  <!-- Nouvelle bannière -->
+  <section class="new-banner">
+    <div class="container">
+      <h2>Obtenez 10% de réduction sur votre première commande !</h2>
+      <p>Inscrivez-vous maintenant et profitez de notre offre exclusive.</p>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <h2 class="text-center mb-4">Catégories populaires</h2>
       <div class="row">
-        <div class="col-md-4 feature">
-          <i class="fas fa-shipping-fast"></i>
-          <h4>Livraison rapide</h4>
-          <p>Bénéficiez d'une livraison rapide et fiable partout au Sénégal.</p>
+        <div class="col-md-4">
+          <div class="category-card">
+            <img src="images/mac0.jpeg" alt="Ordinateurs">
+            <h4>Ordinateurs</h4>
+          </div>
         </div>
-        <div class="col-md-4 feature">
-          <i class="fas fa-tags"></i>
-          <h4>Prix compétitifs</h4>
-          <p>Des prix imbattables sur tous vos produits tech préférés.</p>
+        <div class="col-md-4">
+          <div class="category-card">
+            <img src="images/iphone 15 pro.avif" alt="Téléphones">
+            <h4>Téléphones</h4>
+          </div>
         </div>
-        <div class="col-md-4 feature">
-          <i class="fas fa-headset"></i>
-          <h4>Service client</h4>
-          <p>Une assistance disponible 24/7 pour répondre à toutes vos questions.</p>
+        <div class="col-md-4">
+          <div class="category-card">
+            <img src="images/accessoirs.jpeg" alt="Accessoires">
+            <h4>Accessoires</h4>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Prêt à faire vos achats ?</h2>
+      <a href="produits.html">Voir nos produits</a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 TechStore. Tous droits réservés. | <a href="#" style="color: #ffc107;">Conditions d'utilisation</a></p>
+    <div class="container text-center">
+      <p>&copy; 2024 TechStore - Tous droits réservés</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100072074355703&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/mamadousaliou5138/profilecard/?igsh=MWt0cnJqdXU1dzE4Zw==" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/Mamadou96488863" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/mamadou-saliou-diallo-0563b3220?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
   </footer>
-
-  <!-- Chatbot -->
-  <div class="chatbot" id="chatbot">
-    <div class="chatbot-header">
-      <h4>Assistance en ligne</h4>
-    </div>
-    <div class="chatbot-body" id="chatbot-body">
-      <p>Bonjour ! Comment puis-je vous aider aujourd'hui ?</p>
-    </div>
-    <div class="chatbot-footer">
-      <input type="text" id="chatbot-input" placeholder="Tapez votre message..." />
-    </div>
-  </div>
-
-  <!-- Bouton pour ouvrir/fermer le chatbot -->
-  <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
-
-  <script>
-    function toggleChatbot() {
-      const chatbot = document.getElementById('chatbot');
-      chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'block' : 'none';
-    }
-
-    // Gestion de l'envoi de message
-    document.getElementById('chatbot-input').addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
-        const userMessage = event.target.value;
-        if (userMessage) {
-          const chatbotBody = document.getElementById('chatbot-body');
-          chatbotBody.innerHTML += `<p><strong>Vous:</strong> ${userMessage}</p>`;
-          event.target.value = ''; // Réinitialiser le champ de texte
-
-          // Réponse automatique
-          setTimeout(() => {
-            chatbotBody.innerHTML += `<p><strong>TechStore:</strong> Désolé, je suis un peu occupé, veuillez me contacter 👉 +221 77 708 79 76</p>`;
-            chatbotBody.scrollTop = chatbotBody.scrollHeight; // Scroller vers le bas
-          }, 1000);
-
-          chatbotBody.scrollTop = chatbotBody.scrollHeight; // Toujours scroller vers le bas pour montrer la dernière réponse
-        }
-      }
-    });
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
